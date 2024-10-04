@@ -32,15 +32,24 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: xvfb-run bash build.sh jar
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-target
+          path: ./target
       - name: Build App Installer Bundles
         uses: shannah/jdeploy@sign-package-files
-        with:
+        with:  
           github_token: ${{ secrets.GITHUB_TOKEN }}
           jdeploy_version: 'git://sign-package-files'
   create_and_upload_dmg:
     runs-on: macos-latest
     needs: build
     steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-target
       - name: Create DMG and Upload to Release
         uses: shannah/jdeploy-action-dmg@main
         with:
