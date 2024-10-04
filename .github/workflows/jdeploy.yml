@@ -32,11 +32,13 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: xvfb-run bash build.sh jar
+      - name: List files in ./target
+        run: ls -l ./javase/target
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: build-target
-          path: ./target
+          path: ./javase/target
       - name: Build App Installer Bundles
         uses: shannah/jdeploy@sign-package-files
         with:  
