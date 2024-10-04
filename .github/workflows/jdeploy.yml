@@ -33,9 +33,10 @@ jobs:
       - name: Build with Maven
         run: xvfb-run bash build.sh jar
       - name: Build App Installer Bundles
-        uses: shannah/jdeploy@github-action-support-for-source-jdeploy-version
+        uses: shannah/jdeploy@sign-package-files
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          jdeploy_version: 'git://sign-package-files'
   create_and_upload_dmg:
     runs-on: macos-latest
     needs: build
