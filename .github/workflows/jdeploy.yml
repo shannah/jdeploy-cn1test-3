@@ -36,4 +36,3 @@ jobs:
         uses: shannah/jdeploy@github-action-support-for-source-jdeploy-version
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          jdeploy_version: 'git://github-action-support-for-source-jdeploy-version'
