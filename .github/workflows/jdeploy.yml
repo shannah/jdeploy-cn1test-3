@@ -57,6 +57,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build-target
+      - name: List files in ./javase/target
+        run: ls -l ./javase/target
       - name: Create DMG and Upload to Release
         uses: shannah/jdeploy-action-dmg@main
         with:
