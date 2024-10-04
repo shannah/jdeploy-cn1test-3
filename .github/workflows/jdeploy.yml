@@ -45,6 +45,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           jdeploy_version: 'git://sign-package-files'
   create_and_upload_dmg:
+    permissions:
+      contents: write
     runs-on: macos-latest
     needs: build
     steps:
