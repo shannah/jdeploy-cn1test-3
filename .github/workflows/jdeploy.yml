@@ -36,3 +36,12 @@ jobs:
         uses: shannah/jdeploy@github-action-support-for-source-jdeploy-version
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+  create_and_upload_dmg:
+    runs-on: macos-latest
+    needs: build
+    steps:
+      - name: Create DMG and Upload to Release
+        uses: shannah/jdeploy-action-dmg@main
+        with:
+          jdeploy_version: 'git://sign-package-files'  # Or specify a version like 'git://main' or '4.0.51'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
