@@ -40,10 +40,9 @@ jobs:
           name: build-target
           path: ./javase/target
       - name: Build App Installer Bundles
-        uses: shannah/jdeploy@sign-package-files
+        uses: shannah/jdeploy@master
         with:  
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          jdeploy_version: 'git://sign-package-files'
   create_and_upload_dmg:
     permissions:
       contents: write
@@ -65,7 +64,6 @@ jobs:
       - name: Create DMG and Upload to Release
         uses: shannah/jdeploy-action-dmg@main
         with:
-          jdeploy_version: 'git://sign-package-files'  # Or specify a version like 'git://main' or '4.0.51'
           github_token: ${{ secrets.GITHUB_TOKEN }}
           developer_id: ${{ secrets.MAC_DEVELOPER_ID }}
           developer_team_id: ${{ secrets.MAC_DEVELOPER_TEAM_ID }}
