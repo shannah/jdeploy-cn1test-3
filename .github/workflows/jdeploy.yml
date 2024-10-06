@@ -7,8 +7,7 @@ on:
   push:
     branches: ['*', '!gh-pages']
     tags: ['*']
-env:
-  CREATE_DMG: 'true'
+
 jobs:
   build:
     permissions:
@@ -36,7 +35,7 @@ jobs:
       - name: List files in ./target
         run: ls -l ./javase/target
       - name: Upload Build Artifacts
-        if: ${{ env.CREATE_DMG == 'true' }}  # Control DMG creation with the CREATE_DMG variable
+        if: ${{ vars.JDEPLOY_CREATE_DMG == 'true' }}  # Control DMG creation with the CREATE_DMG variable
         uses: actions/upload-artifact@v3
         with:
           name: build-target
@@ -46,7 +45,7 @@ jobs:
         with:  
           github_token: ${{ secrets.GITHUB_TOKEN }}
   create_and_upload_dmg:
-    if: ${{ env.CREATE_DMG == 'true' }}  # Control DMG creation with the CREATE_DMG variable
+    if: ${{ vars.JDEPLOY_CREATE_DMG == 'true' }}  # Control DMG creation with the CREATE_DMG variable
     name: Create and upload DMG
     permissions:
       contents: write
