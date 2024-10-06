@@ -8,7 +8,7 @@ on:
     branches: ['*', '!gh-pages']
     tags: ['*']
 env:
-  CREATE_DMG: true
+  CREATE_DMG: 'true'
 jobs:
   build:
     permissions:
