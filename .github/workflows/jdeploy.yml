@@ -44,6 +44,7 @@ jobs:
         with:  
           github_token: ${{ secrets.GITHUB_TOKEN }}
   create_and_upload_dmg:
+    name: Create and upload DMG
     permissions:
       contents: write
     runs-on: macos-latest
