@@ -44,6 +44,7 @@ jobs:
         uses: shannah/jdeploy@master
         with:  
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          jdeploy_version: git://feat/tag-github-release-note-links
   create_and_upload_dmg:
     if: ${{ vars.JDEPLOY_CREATE_DMG == 'true' }}  # Control DMG creation with the CREATE_DMG variable
     name: Create and upload DMG
@@ -65,7 +66,7 @@ jobs:
       - name: List files in ./javase/target
         run: ls -l ./javase/target
       - name: Create DMG and Upload to Release
-        uses: shannah/jdeploy-action-dmg@update-release-links
+        uses: shannah/jdeploy-action-dmg@update-release-notes
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           developer_id: ${{ secrets.MAC_DEVELOPER_ID }}
