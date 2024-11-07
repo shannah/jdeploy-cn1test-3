@@ -65,7 +65,7 @@ jobs:
       - name: List files in ./javase/target
         run: ls -l ./javase/target
       - name: Create DMG and Upload to Release
-        uses: shannah/jdeploy-action-dmg@main
+        uses: shannah/jdeploy-action-dmg@fix-separate-release-repo
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           developer_id: ${{ secrets.MAC_DEVELOPER_ID }}
