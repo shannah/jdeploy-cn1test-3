@@ -41,7 +41,7 @@ jobs:
           name: build-target
           path: ./javase/target
       - name: Build App Installer Bundles
-        uses: shannah/jdeploy@master
+        uses: shannah/jdeploy@feature/publish-targets
         with:  
           github_token: ${{ secrets.GITHUB_TOKEN }}
   create_and_upload_dmg:
