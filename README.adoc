@@ -32,3 +32,5 @@ The project should work in IntelliJ out of the box.  No need to copy any files.
 == Help and Support
 
 See the https://www.codenameone.com[Codename One Web Site].
+
+test
