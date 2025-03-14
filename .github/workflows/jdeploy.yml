@@ -41,10 +41,10 @@ jobs:
           name: build-target
           path: ./javase/target
       - name: Build App Installer Bundles
-        uses: shannah/jdeploy@chore/remove-openai-experiments
+        uses: shannah/jdeploy@master
         with:  
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          jdeploy_version: 'git://chore/remove-openai-experiments'
+          jdeploy_version: '4.1.2'
   create_and_upload_dmg:
     if: ${{ vars.JDEPLOY_CREATE_DMG == 'true' }}  # Control DMG creation with the CREATE_DMG variable
     name: Create and upload DMG
