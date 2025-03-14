@@ -41,10 +41,10 @@ jobs:
           name: build-target
           path: ./javase/target
       - name: Build App Installer Bundles
-        uses: shannah/jdeploy@feature/publish-targets
+        uses: shannah/jdeploy@master
         with:  
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          jdeploy_version: 'git://feature/publish-targets'
+          jdeploy_version: 'git://master'
   create_and_upload_dmg:
     if: ${{ vars.JDEPLOY_CREATE_DMG == 'true' }}  # Control DMG creation with the CREATE_DMG variable
     name: Create and upload DMG
